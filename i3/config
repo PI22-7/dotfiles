@@ -61,9 +61,7 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 client.background       $bg
 
-
-
-
+###
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -87,12 +85,18 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up l
 set $down k
 set $left j
 set $right semicolon
+
+## Killing picom with keybinds
+
+bindsym Mod4+Shift+p exec --no-startup-id picom --config /home/pi/.config/picom.conf -b
+#bindsym Mod4+Alt+p exec --no-startup-id killall picom
 
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
